@@ -183,6 +183,17 @@ export default function App() {
           <article><span>Propuesta de valor</span><h3>Servicio a medida, de principio a fin.</h3><p>Integramos aspectos funcionales, estéticos y técnicos para transformar y mejorar cada entorno de acuerdo con las necesidades del cliente.</p></article>
         </div>
 
+        <div className="team-section">
+          <div className="team-visual">
+            <img src={`${ASSET_BASE}images/equipo-tecnico-rg.jpg`} alt="Equipo técnico de RG Servicios durante un trabajo en campo" />
+          </div>
+          <div className="team-copy">
+            <p className="eyebrow">Nuestro equipo técnico</p>
+            <h2>Las personas detrás de cada proyecto.</h2>
+            <p>Parte del equipo encargado de ejecutar nuestros trabajos en campo y acompañar cada proyecto desde la coordinación inicial hasta su entrega.</p>
+          </div>
+        </div>
+
         <div className="values-section">
           <div className="values-heading"><h2>Nuestros valores</h2></div>
           <div className="values-grid">{values.map((value) => <article key={value.title}><span>{value.number}</span><h3>{value.title}</h3><p>{value.text}</p></article>)}</div>
