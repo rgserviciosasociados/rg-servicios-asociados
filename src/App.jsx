@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
   "https://script.google.com/macros/s/AKfycbx2myA0M0Crv4R_FxBUNu-Z39P3O4G-WMHpX5Gmtqr5KmJSckeG2nhs-8HRd7bM9BCU/exec";
@@ -64,6 +64,7 @@ function WhatsAppMark() {
 
 export default function App() {
   const [sendStatus, setSendStatus] = useState("idle");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   function formMessage(data) {
     return [
@@ -134,6 +135,20 @@ export default function App() {
           <a href={`${ASSET_BASE}preguntas-frecuentes/`}>Preguntas frecuentes</a>
         </nav>
         <a className="button button-small" href="#cotizacion">Solicitar cotización</a>
+        <div className="mobile-header-actions">
+          <a className="mobile-whatsapp" href="https://wa.me/51942738596" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp"><MessageCircle size={20} /></a>
+          <button className="mobile-menu-button" type="button" aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} onClick={() => setMenuOpen((open) => !open)}>
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+        <nav className={`mobile-menu${menuOpen ? " is-open" : ""}`} id="mobile-navigation" aria-label="Navegación móvil">
+          <a href="#inicio" onClick={() => setMenuOpen(false)}>Inicio</a>
+          <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
+          <a href="#nosotros" onClick={() => setMenuOpen(false)}>Nosotros</a>
+          <a href="#proyectos" onClick={() => setMenuOpen(false)}>Proyectos</a>
+          <a href={`${ASSET_BASE}preguntas-frecuentes/`} onClick={() => setMenuOpen(false)}>Preguntas frecuentes</a>
+          <a className="mobile-menu-cta" href="#cotizacion" onClick={() => setMenuOpen(false)}>Solicitar cotización</a>
+        </nav>
       </header>
 
       <section className="hero" id="inicio">

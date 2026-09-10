@@ -1,4 +1,5 @@
-import { ChevronDown, Mail, MessageCircle, Phone } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
 
 const ASSET_BASE = import.meta.env.BASE_URL;
 
@@ -38,6 +39,8 @@ const faqs = [
 ];
 
 export default function FaqPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main className="faq-page">
       <header className="site-header">
@@ -52,6 +55,20 @@ export default function FaqPage() {
           <a href={`${ASSET_BASE}preguntas-frecuentes/`} aria-current="page">Preguntas frecuentes</a>
         </nav>
         <a className="button button-small" href={`${ASSET_BASE}#cotizacion`}>Solicitar cotización</a>
+        <div className="mobile-header-actions">
+          <a className="mobile-whatsapp" href="https://wa.me/51942738596" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp"><MessageCircle size={20} /></a>
+          <button className="mobile-menu-button" type="button" aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} onClick={() => setMenuOpen((open) => !open)}>
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+        <nav className={`mobile-menu${menuOpen ? " is-open" : ""}`} id="mobile-navigation" aria-label="Navegación móvil">
+          <a href={ASSET_BASE} onClick={() => setMenuOpen(false)}>Inicio</a>
+          <a href={`${ASSET_BASE}#servicios`} onClick={() => setMenuOpen(false)}>Servicios</a>
+          <a href={`${ASSET_BASE}#nosotros`} onClick={() => setMenuOpen(false)}>Nosotros</a>
+          <a href={`${ASSET_BASE}#proyectos`} onClick={() => setMenuOpen(false)}>Proyectos</a>
+          <a href={`${ASSET_BASE}preguntas-frecuentes/`} aria-current="page" onClick={() => setMenuOpen(false)}>Preguntas frecuentes</a>
+          <a className="mobile-menu-cta" href={`${ASSET_BASE}#cotizacion`} onClick={() => setMenuOpen(false)}>Solicitar cotización</a>
+        </nav>
       </header>
 
       <section className="faq-hero">
