@@ -131,6 +131,7 @@ export default function App() {
           <a href="#servicios">Servicios</a>
           <a href="#nosotros">Nosotros</a>
           <a href="#proyectos">Proyectos</a>
+          <a href={`${ASSET_BASE}preguntas-frecuentes/`}>Preguntas frecuentes</a>
         </nav>
         <a className="button button-small" href="#cotizacion">Solicitar cotización</a>
       </header>
@@ -257,6 +258,7 @@ export default function App() {
           <a href="https://www.linkedin.com/company/rg-servicios-asociados-sac/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><LinkedInMark /></a>
           <a href="https://wa.me/51942738596" target="_blank" rel="noreferrer" aria-label="WhatsApp" title="WhatsApp"><WhatsAppMark /></a>
         </div>
+        <div className="footer-links"><a href={`${ASSET_BASE}preguntas-frecuentes/`}>Preguntas frecuentes</a></div>
         <p>© 2026 RG Servicios Asociados</p>
       </footer>
     </main>
