@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
+import { trackEvent } from "./analytics.js";
 
 const ASSET_BASE = import.meta.env.BASE_URL;
 
@@ -45,7 +46,7 @@ export default function FaqPage() {
     <main className="faq-page">
       <header className="site-header">
         <a className="brand" href={ASSET_BASE} aria-label="RG Servicios, inicio">
-          <img src={`${ASSET_BASE}images/logo-rg-color.jpg`} alt="Logo de RG Servicios Asociados" />
+          <img src={`${ASSET_BASE}images/logo-rg-color.webp`} alt="Logo de RG Servicios Asociados" width="42" height="48" decoding="async" />
           <span><strong>RG Servicios</strong><small>Asociados</small></span>
         </a>
         <nav aria-label="Navegación principal">
@@ -56,7 +57,7 @@ export default function FaqPage() {
         </nav>
         <a className="button button-small" href={`${ASSET_BASE}#cotizacion`}>Solicitar cotización</a>
         <div className="mobile-header-actions">
-          <a className="mobile-whatsapp" href="https://wa.me/51942738596" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp"><MessageCircle size={20} /></a>
+          <a className="mobile-whatsapp" href="https://wa.me/51942738596" target="_blank" rel="noreferrer" aria-label="Contactar por WhatsApp" onClick={() => trackEvent("contact", { method: "whatsapp", location: "faq_mobile_header" })}><MessageCircle size={20} /></a>
           <button className="mobile-menu-button" type="button" aria-expanded={menuOpen} aria-controls="mobile-navigation" aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} onClick={() => setMenuOpen((open) => !open)}>
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -101,14 +102,14 @@ export default function FaqPage() {
           <h2>Conversemos sobre tu proyecto.</h2>
         </div>
         <div className="faq-contact-actions">
-          <a className="button whatsapp-button" href="https://wa.me/51942738596" target="_blank" rel="noreferrer"><MessageCircle size={18} />WhatsApp</a>
-          <a href="tel:+51942738596"><Phone size={18} />942 738 596</a>
-          <a href="mailto:rgserviciosasociados@gmail.com"><Mail size={18} />Correo electrónico</a>
+          <a className="button whatsapp-button" href="https://wa.me/51942738596" target="_blank" rel="noreferrer" onClick={() => trackEvent("contact", { method: "whatsapp", location: "faq_contact" })}><MessageCircle size={18} />WhatsApp</a>
+          <a href="tel:+51942738596" onClick={() => trackEvent("contact", { method: "phone", location: "faq_contact" })}><Phone size={18} />942 738 596</a>
+          <a href="mailto:rgserviciosasociados@gmail.com" onClick={() => trackEvent("contact", { method: "email", location: "faq_contact" })}><Mail size={18} />Correo electrónico</a>
         </div>
       </section>
 
       <footer className="faq-footer">
-        <div className="brand footer-brand"><img src={`${ASSET_BASE}images/logo-rg-color.jpg`} alt="Logo de RG Servicios Asociados" /><span><strong>RG Servicios</strong><small>Asociados</small></span></div>
+        <div className="brand footer-brand"><img src={`${ASSET_BASE}images/logo-rg-color.webp`} alt="Logo de RG Servicios Asociados" width="42" height="48" loading="lazy" decoding="async" /><span><strong>RG Servicios</strong><small>Asociados</small></span></div>
         <a href={ASSET_BASE}>Volver al inicio</a>
         <p>© 2026 RG Servicios Asociados</p>
       </footer>
