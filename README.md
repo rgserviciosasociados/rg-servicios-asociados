@@ -4,7 +4,7 @@ Sitio web corporativo de RG Servicios Asociados, especializado en soluciones arq
 
 ## Sitio web
 
-[Visitar la página de RG Servicios](https://rgserviciosasociados.github.io/rg-servicios-asociados/)
+[Visitar la página de RG Servicios](https://rgserviciosasociados.github.io/)
 
 ## Desarrollo local
 
