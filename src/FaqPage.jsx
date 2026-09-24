@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "¿En qué zona brindan atención?",
-    answer: "Actualmente brindamos atención en Lima. Puedes consultarnos la disponibilidad para la ubicación específica de tu proyecto mediante nuestros canales de contacto.",
+    answer: "Brindamos atención en Lima y provincias. Consúltanos la disponibilidad para la ubicación específica de tu proyecto a través de nuestros canales de contacto.",
   },
   {
     question: "¿Trabajan con protocolos de seguridad?",
